@@ -5,7 +5,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<title>Document</title>
+	<title>lkoma</title>
 	<style>
 		* {
 			margin: 0;
@@ -77,7 +77,7 @@
 			</p>
 		</div>
 		<div class="footer">
-			<a class="go-home">home</a>
+			<a class="go-home" href="/">home</a>
 		</div>
 	</div>
 	<script>
@@ -88,10 +88,8 @@
 		let timer;
 		goHome.addEventListener('mouseenter', () => {
 			timer = setInterval(() => {
-				console.log(goHome.style.color);
 				const random = Math.floor(Math.random() * params.length);
 				const range = Math.floor(Math.random() * rangeN);
-				console.log(range);
 				goHome.style[params[random]] = range + 'px';
 			}, time);
 		});
