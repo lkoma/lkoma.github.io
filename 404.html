@@ -1,18 +1,104 @@
-<!DOCTYPE HTML>
-<html>
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
-  <meta http-equiv="content-type" content="text/html;charset=utf-8;"/>
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  <meta name="robots" content="all" />
-  <meta name="robots" content="index,follow"/>
-  <link rel="stylesheet" type="text/css" href="https://qzone.qq.com/gy/404/style/404style.css">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>lkoma</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+
+		html,
+		body {
+			height: 100%;
+		}
+
+		.wrap {
+			height: 100%;
+			position: relative;
+			background-color: #16AD85;
+		}
+
+		.animation-alien {
+			width: 280px;
+			position: absolute;
+			top: 150px;
+			left: 50%;
+			transform: translateX(-50%);
+			padding-top: 250px;
+			background: url('http://oj1dfv10p.bkt.clouddn.com/404-alien.gif') no-repeat;
+		}
+
+		.warn {
+			font-weight: 400;
+			font-size: 0.875rem;
+			color: #fff;
+			text-align: center;
+			animation: show 1s;
+		}
+
+		.footer {
+			position: fixed;
+			left: 0;
+			width: 100%;
+			bottom: 50px;
+		}
+
+		.go-home {
+			color: #fff;
+			text-align: center;
+			display: block;
+			width: 100px;
+			margin: 0 auto;
+			cursor: pointer;
+			position: relative;
+			top: 0px;
+		}
+		@keyframes show {
+			from {
+				opacity: 0;
+			}
+			to {
+				opacity: 1;
+			}
+		}
+	</style>
 </head>
+
 <body>
-  <script type="text/plain" src="http://www.qq.com/404/search_children.js"
-          charset="utf-8" homePageUrl="/"
-          homePageName="回到我的主页">
-  </script>
-  <script src="https://qzone.qq.com/gy/404/data.js" charset="utf-8"></script>
-  <script src="https://qzone.qq.com/gy/404/page.js" charset="utf-8"></script>
+	<div class="wrap">
+		<div class="animation-alien">
+			<p class="warn">
+				The page you are looking for is either stolen by aliens or never existed.
+			</p>
+		</div>
+		<div class="footer">
+			<a class="go-home" href="/">home</a>
+		</div>
+	</div>
+	<script>
+		const goHome = document.querySelector('.go-home');
+		const params = ["top", "left"],
+				rangeN = 10,
+				time = 20;
+		let timer;
+		goHome.addEventListener('mouseenter', () => {
+			timer = setInterval(() => {
+				const random = Math.floor(Math.random() * params.length);
+				const range = Math.floor(Math.random() * rangeN);
+				goHome.style[params[random]] = range + 'px';
+			}, time);
+		});
+		goHome.addEventListener('mouseout', () => {
+			goHome.style.top = 0 + 'px';
+			goHome.style.left = 0 + 'px';
+			clearInterval(timer);
+		});
+	</script>
 </body>
+
 </html>
